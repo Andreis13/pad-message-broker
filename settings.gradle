@@ -1,0 +1,8 @@
+
+// To declare projects as part of a multi-project build use the 'include' method
+include 'common'
+include 'sender'
+include 'receiver'
+include 'broker'
+
+rootProject.name = 'lab1-message-broker'

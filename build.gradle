@@ -1,0 +1,57 @@
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        compile 'org.slf4j:slf4j-api:1.7.12'
+
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+project(':broker') {
+    apply plugin: 'application'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    mainClassName = 'faf.pad1.broker.Main'
+}
+
+project(':sender') {
+    apply plugin: 'application'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    mainClassName = 'faf.pad1.sender.Main'
+
+    run {
+        standardInput = System.in
+        if(project.hasProperty('args')) {
+            args project.args.split()
+        }
+    }
+}
+
+project(':receiver') {
+    apply plugin: 'application'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    mainClassName = 'faf.pad1.receiver.Main'
+
+    run {
+        if(project.hasProperty('args')) {
+            args project.args.split()
+        }
+    }
+}
