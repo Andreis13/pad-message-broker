@@ -45,10 +45,10 @@ The project represents a Gradle build with 4 subprojects. [Gradle](https://docs.
 
 The 4 subprojects included in the solution are the following:
 
-    * sender - the entity that sends out messages.
-    * receiver - the entity that subscribes to a certain type of messages and expects them
-    * broker - the middleware used to route the messages to subscribers
-    * common - a set of classes that are shared among two or more subprojects
+- sender - the entity that sends out messages.
+- receiver - the entity that subscribes to a certain type of messages and expects them
+- broker - the middleware used to route the messages to subscribers
+- common - a set of classes that are shared among two or more subprojects
 
 
 
@@ -85,10 +85,10 @@ gradle run -Pargs="127.0.0.1 3000 4001 a b c"
 ```
 
 The arguments meaning is as follows:
-    - `127.0.0.1` - the IP address of the broker
-    - `3000` - the Port on which the broker operates
-    - `4001` - the Port to which the current receiver should be bound
-    - `a b c` - a list of strings that represent the 'message types' in which this receiver is interested, for the sake of this laboratory work the message types are represented as lowercase latin letters.
+- `127.0.0.1` - the IP address of the broker
+- `3000` - the Port on which the broker operates
+- `4001` - the Port to which the current receiver should be bound
+- `a b c` - a list of strings that represent the 'message types' in which this receiver is interested, for the sake of this laboratory work the message types are represented as lowercase latin letters.
 
 At startup the `receiver` sends a special `subscribe` message to the `broker`. It includes the message types to which the receiver is to be subscribed. After that the broker will route all matching messages to the given receiver.
 
